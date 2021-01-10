@@ -13,7 +13,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class TC003_GetEmployeeByID {
+public class TC002_GetEmployeeByID {
 	
 
 	private static String extension;
@@ -38,7 +38,7 @@ public class TC003_GetEmployeeByID {
 	@Test(priority = 2)
 	public void hitRequest() {
 		try {
-			response = RestAssured.given().contentType(ContentType.JSON).when().get(extension);
+			response = RestAssured.given().contentType(ContentType.JSON).get(extension);
 			if (response.getStatusCode() == 200) {
 				System.out.println("The get employee by id test is Pass!!!!");
 			} else {

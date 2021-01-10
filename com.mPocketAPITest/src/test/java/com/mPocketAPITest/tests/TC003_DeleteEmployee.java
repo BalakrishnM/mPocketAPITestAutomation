@@ -5,12 +5,13 @@ import org.testng.annotations.Test;
 
 import com.mPocketAPITest.common.BaseClass;
 import com.mPocketAPITest.common.RequestLoader;
+import com.nPocketAPITest.utilities.ReplaceParameters;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class TC002_GetAllEmployees {
+public class TC003_DeleteEmployee {
 	
 	private static String extension;
 	private Response response = null;
@@ -23,6 +24,11 @@ public class TC002_GetAllEmployees {
 		RestAssured.baseURI = BaseClass.endpoint;
 
 		extension = RequestLoader.LoadTheRequest(ext);
+			
+		extension =extension +"/"+ TC001_CreateRecord.Id;
+		
+		
+		System.out.println("Ready extension: "+ extension);
 
 	}
 	
@@ -30,12 +36,12 @@ public class TC002_GetAllEmployees {
 	@Test(priority = 2)
 	public void hitRequest() {
 		try {
-			response = RestAssured.given().contentType(ContentType.JSON).when().get(extension);
+			response = RestAssured.given().contentType(ContentType.JSON).delete(extension);
 			if (response.getStatusCode() == 200) {
-				System.out.println("The create record test is Pass!!!!");
+				System.out.println("The delete employee by id test is Pass!!!!");
 			} else {
 				System.out.println(
-						"The create record  test is failed and found status code: " + response.getStatusCode());
+						"The delete employee by id test is failed and found status code: " + response.getStatusCode());
 			}
 
 			System.out.println("Reponse body" + response.asString());
@@ -45,5 +51,7 @@ public class TC002_GetAllEmployees {
 
 		}
 	}
+	
+	
 
 }
