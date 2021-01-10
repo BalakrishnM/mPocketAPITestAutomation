@@ -14,16 +14,16 @@ import org.testng.annotations.Parameters;
 import org.testng.xml.XmlSuite;
 
 public class PropertyInjectorListener implements IAlterSuiteListener {
-	
-	
 
 	private void getPropertiesFromFile(Properties properties, String fileName)
 			throws FileNotFoundException, IOException {
 
-		properties.load(new FileReader(Paths.get(System.getProperty("user.dir"), "src", "test", "java", "com",
-				"mPocketAPITest", "config", fileName).toFile()));
+		properties.load(new FileReader(Paths
+				.get(System.getProperty("user.dir"), "src", "test", "java", "com", "mPocketAPITest", "config", fileName)
+				.toFile()));
 	}
-	@Parameters({"ConfigFile"})
+
+	@Parameters({ "ConfigFile" })
 	public void alter(List<XmlSuite> suites) {
 
 		XmlSuite suite = suites.get(0);

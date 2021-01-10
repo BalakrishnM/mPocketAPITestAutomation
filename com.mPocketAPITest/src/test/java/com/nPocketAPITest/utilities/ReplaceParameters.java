@@ -7,8 +7,8 @@ import com.mPocketAPITest.common.*;
 public class ReplaceParameters {
 
 	public static Map<String, String> traversMap = new HashMap<String, String>();
-	
-	//This function is used to update the payload with test data
+
+	// This function is used to update the payload with test data
 	public static String replaceRestBody(String requestBody, String name, String salary, String age) {
 
 		traversMap.put("NAME", name);
