@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API test suite mPocket" parallel="false" allow-return-values="true">
+	<test name="Test">
+		<classes>
+			<class name="com.mPocketAPITest.common.BaseClass"></class>
+		</classes>
+	</test>
+
+	<test name="Create record">
+		<parameter name="PAYLOAD" value="createPayLoad"></parameter>
+		<parameter name="REQUESTEXT" value="Creat_ext"></parameter>
+		<classes>
+			<class name="com.mPocketAPITest.tests.TC001_CreateRecord"/>
+
+		</classes>
+	</test>
+	
+	<test name="Get employee record by Id">
+		<parameter name="PAYLOAD" value="createPayLoad"></parameter>
+		<parameter name="REQUESTEXT" value="employeeId_ext"></parameter>
+		<classes>
+			<class name="com.mPocketAPITest.tests.TC003_GetEmployeeByID"/>
+
+		</classes>
+	</test>
+	
+	<test name="Delete employee record by Id">
+		<parameter name="PAYLOAD" value="createPayLoad"></parameter>
+		<parameter name="REQUESTEXT" value="delete_ext"></parameter>
+		<classes>
+			<class name="com.mPocketAPITest.tests.TC005_DeleteEmployee"/>
+
+		</classes>
+	</test>
+	
+	<listeners>
+		<listener
+			class-name="com.mPocketAPITest.common.PropertyInjectorListener">
+			<parameter name="ConfigFile" value="TestData.properties" />
+		</listener>
+	</listeners>
+
+
+</suite> <!-- Suite -->
